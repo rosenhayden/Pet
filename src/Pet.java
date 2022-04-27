@@ -66,7 +66,10 @@ public enum Type {
 
     public static int getAge(LocalDate dateOfBirth)
     {
-        return (LocalDate.now().getYear() - dateOfBirth.getYear());
+        if(LocalDate.now().getMonthValue() - dateOfBirth.getMonthValue() >= 0) {
+            return (LocalDate.now().getYear() - dateOfBirth.getYear());
+        }
+        return (LocalDate.now().getYear() - dateOfBirth.getYear()) - 1;
     }
 
 }
